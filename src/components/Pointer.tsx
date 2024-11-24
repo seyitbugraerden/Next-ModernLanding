@@ -21,7 +21,7 @@ const Pointer = (props: { name: string; color?: "red" | "blue" }) => {
             </svg>
             <div
                 className={`absolute top-full left-12">
-                <div className="inline-flex rounded-tl-none rounded-full text-sm font-bold px-2 ${
+                <div className="inline-flex rounded-tl-none rounded-full text-sm font-bold px-2 translate-x-5 translate-y-1q"   1 ${
                     color === "red" ? "bg-red-500" : "bg-blue-500"
                 }`}
             >
