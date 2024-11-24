@@ -34,10 +34,10 @@ export default function Navbar() {
                         </nav>
                     </div>
                     <div className="justify-self-end">
-                        <IoMenu className="md:hidden inline-block" size={48}/>
-                        <Button text="Log In" className="mx-4" />
-                        <Button text="Sign Up" bg={true} />
-                    </div> 
+                        <IoMenu className="md:hidden inline-block" size={48} />
+                        <Button text="Log In" className="mx-4 hidden md:inline-block" />
+                        <Button text="Sign Up" bg={true} className=" hidden md:inline-block" />
+                    </div>
                 </div>
             </div>
         </section>
