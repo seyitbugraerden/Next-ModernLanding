@@ -10,12 +10,12 @@ export default function Introduction() {
                     <Tag>Introducting Layers</Tag>
                 </div>
 
-                <div>
-                    <span className="text-4xl text-center font-medium mt-10">
+                <div className="text-center mt-4">
+                    <span className="text-3xl text-center font-medium mt-10">
                         Your creative process deserves better.
                     </span>
-                    <span className="text-white/15">{text}</span>
-                    <span className="text-lime-400 ">
+                    <span className="text-white/15 text-3xl">{text}</span>
+                    <span className="text-lime-400 text-3xl">
                         That&apos;s why we build Layers
                     </span>
                 </div>
