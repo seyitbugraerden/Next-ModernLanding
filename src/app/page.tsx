@@ -11,7 +11,7 @@ export default function Home() {
             <Hero />
             <LogoTicker />
             <Introduction />
-            <Features/>>
+            <Features/>
         </>
     );
 }

@@ -94,7 +94,7 @@ export default function Features() {
                         </div>
                     </FeatureCard>
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 flex flex-wrap gap-3 justify-center">
                     {features.map((x: string, idx: number) => {
                         return (
                             <div
@@ -104,7 +104,7 @@ export default function Features() {
                                 <span className="bg-lime-400 text-neutral-950 size-5 rounded-full inline-flex justify-center text-xl">
                                     &#10038;
                                 </span>
-                                <span>{x}</span>
+                                <span className="font-medium">{x}</span>
                             </div>
                         );
                     })}
