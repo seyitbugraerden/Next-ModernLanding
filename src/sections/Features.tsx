@@ -34,7 +34,7 @@ export default function Features() {
                                 editing"
                         className="md:col-span-2 lg:col-span-1"
                     >
-                        <div className="aspect-square flex items-center justify-center">
+                        <div className="flex items-center justify-center h-full">
                             <Avatar className="z-40">
                                 <Image
                                     src={avatar1}
@@ -74,7 +74,7 @@ export default function Features() {
                                 to user actions"
                         className="md:col-span-2 lg:col-span-1"
                     >
-                        <div className="aspect-square flex items-center justify-center">
+                        <div className="flex items-center justify-center">
                             <p className="text-4xl font-extrabold text-white/20 text-center ">
                                 We&apos;ve achived{" "}
                                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -90,7 +90,7 @@ export default function Features() {
                                 more quickly"
                         className="md:col-span-2 md:col-start-2 lg:col-span-1"
                     >
-                        <div className="aspect-square flex items-center justify-center gap-4">
+                        <div className="flex items-center justify-center gap-4 h-full">
                             <Key className="w-28">shift</Key>
                             <Key>alt</Key>
                             <Key>C</Key>
