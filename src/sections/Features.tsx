@@ -5,6 +5,7 @@ import avatar2 from "@/assets/images/avatar-lula-meyers.jpg";
 import avatar3 from "@/assets/images/avatar-florence-shaw.jpg";
 import Image from "next/image";
 import Avatar from "@/components/Avatar";
+import Key from "@/components/Key";
 const features = [
     "Asset Library",
     "Code Preview",
@@ -86,46 +87,23 @@ export default function Features() {
                         description="Powerful comments to help you create designs
                                 more quickly"
                     >
-                        <div className="aspect-square flex items-center justify-center">
-                            <Avatar className="z-40">
-                                <Image
-                                    src={avatar1}
-                                    alt="Avatar1"
-                                    className="rounded-full"
-                                />
-                            </Avatar>
-                            <Avatar className="-ml-6 border-indigo-500 z-30">
-                                <Image
-                                    src={avatar2}
-                                    alt="Avatar2"
-                                    className="rounded-full"
-                                />
-                            </Avatar>
-                            <Avatar className="-ml-6 border-amber-500 z-20">
-                                <Image
-                                    src={avatar3}
-                                    alt="Avatar3"
-                                    className="rounded-full"
-                                />
-                            </Avatar>
-                            <Avatar className="-ml-6 border-transparent rounded-full inline-flex items-center justify-center gap-1">
-                                <div className="size-full bg-neutral-700">
-                                    {Array.from({ length: 3 }).map((_, i) => (
-                                        <span
-                                            key={i}
-                                            className="size-1.5 rounded-full bg-white inline-flex"
-                                        ></span>
-                                    ))}
-                                </div>
-                            </Avatar>
+                        <div className="aspect-video flex items-center justify-center gap-4">
+                            <Key className="w-28">shift</Key>
+                            <Key>alt</Key>
+                            <Key>C</Key>
                         </div>
                     </FeatureCard>
                 </div>
-                <div>
+                <div className="mt-8">
                     {features.map((x: string, idx: number) => {
                         return (
-                            <div key={idx}>
-                                <span></span>
+                            <div
+                                key={idx}
+                                className="bg-neutral-900 border border-white/10 inline-flex px-3 py-1.5 rounded-2xl gap-3 items-center"
+                            >
+                                <span className="bg-lime-400 text-neutral-950 size-5 rounded-full inline-flex justify-center text-xl">
+                                    &#10038;
+                                </span>
                                 <span>{x}</span>
                             </div>
                         );
