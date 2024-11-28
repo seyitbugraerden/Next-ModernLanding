@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
