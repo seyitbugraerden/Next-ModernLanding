@@ -1,16 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { IntegrationColumnsTypes } from "@/types/IntegrationItemTypes";
 
-type IntegrationColumnsTypes = {
-    className?: string;
-    integrations: IntegrationItemTypes[];
-};
-
-type IntegrationItemTypes = {
-    name: string;
-    icon: string;
-    description: string;
-};
 const IntegrationsColumns: React.FC<IntegrationColumnsTypes> = ({
     integrations,
     className,

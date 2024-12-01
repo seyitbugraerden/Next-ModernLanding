@@ -1,11 +1,7 @@
+import { FeatureCardTypes } from "@/types/FeatureCardTypes";
 import React from "react";
 
-const FeatureCard = (props: {
-    title: string;
-    description: string;
-    className?: string;
-    children?: React.ReactNode;
-}) => {
+const FeatureCard = (props: FeatureCardTypes) => {
     const { title, description, children, className } = props;
     return (
         <div

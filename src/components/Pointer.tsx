@@ -1,6 +1,7 @@
+import { PointerTypes } from "@/types/PointerTypes";
 import React from "react";
 
-const Pointer = (props: { name: string; color?: "red" | "blue" }) => {
+const Pointer = (props: PointerTypes) => {
     const { name, color } = props;
     return (
         <div className="relative size-">

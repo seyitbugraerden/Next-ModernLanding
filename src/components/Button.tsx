@@ -1,10 +1,5 @@
+import { ButtonType } from "@/types/ButtonTypes";
 import React from "react";
-
-type ButtonType = {
-    bg?: boolean;
-    text: string;
-    className?: string;
-};
 
 const Button: React.FC<ButtonType> = ({ bg, text, className }) => {
     return (
