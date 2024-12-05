@@ -1,8 +1,11 @@
+"use client";
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import Button from "@/components/Button";
-import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
+import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
 
 const navLinks = [
     { label: "Home", href: "#" },
@@ -12,10 +15,14 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <section className="py-4 lg:py-8">
+        <section className="py-4 lg:py-8 sticky top-0 z-50">
             <div className="container max-w-5xl">
-                <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 items-center">
+                <div
+                    className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 items-center bg-neutral-950/70 backdrop-b
+                "
+                >
                     <div>
                         <Image
                             src={logo}
@@ -34,9 +41,32 @@ export default function Navbar() {
                         </nav>
                     </div>
                     <div className="justify-self-end">
-                        <IoMenu className="md:hidden inline-block" size={48} />
-                        <Button text="Log In" className="mx-4 hidden md:inline-block" />
-                        <Button text="Sign Up" bg={true} className=" hidden md:inline-block" />
+                        {isOpen ? (
+                            <IoMenu
+                                className="md:hidden inline-block"
+                                size={48}
+                                onClick={() => {
+                                    setIsOpen(!isOpen);
+                                }}
+                            />
+                        ) : (
+                            <IoMdClose
+                                className="md:hidden inline-block"
+                                size={48}
+                                onClick={() => {
+                                    setIsOpen(!isOpen);
+                                }}
+                            />
+                        )}
+                        <Button
+                            text="Log In"
+                            className="mx-4 hidden md:inline-block"
+                        />
+                        <Button
+                            text="Sign Up"
+                            bg={true}
+                            className=" hidden md:inline-block"
+                        />
                     </div>
                 </div>
             </div>
