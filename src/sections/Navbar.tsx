@@ -6,6 +6,7 @@ import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
     { label: "Home", href: "#" },
@@ -17,9 +18,9 @@ const navLinks = [
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <section className="py-4 lg:py-8 sticky top-0 z-50">
+        <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
             <div className="container max-w-5xl">
-                <div className="border border-white/15 rounded-[27px] bg-neutral-950/70 backdrop-b">
+                <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-b">
                     <div
                         className="grid grid-cols-2 lg:grid-cols-3 p-2 px-4 md:pr-2 items-center 
                 "
@@ -42,7 +43,7 @@ export default function Navbar() {
                             </nav>
                         </div>
                         <div className="justify-self-end">
-                            {isOpen ? (
+                            {!isOpen ? (
                                 <IoMenu
                                     className="md:hidden inline-block"
                                     size={48}
@@ -70,25 +71,27 @@ export default function Navbar() {
                             />
                         </div>
                     </div>
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                initial={{ height: 0 }}
+                                animate={{ height: "auto" }}
+                                exit={{ height: 0 }}
+                                className="overflow-hidden"
+                            >
+                                <div className="flex flex-col items-center gap-4 py-4">
+                                    {navLinks.map((x, idx) => (
+                                        <a key={idx} href={x.href} className="">
+                                            {x.label}
+                                        </a>
+                                    ))}
+                                    <Button text="Log In" />
+                                    <Button text="Sign Up" bg={true} />
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-                {isOpen && (
-                    <div className="flex flex-col items-center gap-4 py-4">
-                        {navLinks.map((x, idx) => (
-                            <a key={idx} href={x.href} className="">
-                                {x.label}
-                            </a>
-                        ))}
-                        <Button
-                            text="Log In"
-                            className="mx-4 hidden md:inline-block"
-                        />
-                        <Button
-                            text="Sign Up"
-                            bg={true}
-                            className=" hidden md:inline-block"
-                        />
-                    </div>
-                )}
             </div>
         </section>
     );
