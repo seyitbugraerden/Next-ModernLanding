@@ -19,56 +19,73 @@ export default function Navbar() {
     return (
         <section className="py-4 lg:py-8 sticky top-0 z-50">
             <div className="container max-w-5xl">
-                <div
-                    className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 items-center bg-neutral-950/70 backdrop-b
+                <div className="border border-white/15 rounded-[27px] bg-neutral-950/70 backdrop-b">
+                    <div
+                        className="grid grid-cols-2 lg:grid-cols-3 p-2 px-4 md:pr-2 items-center 
                 "
-                >
-                    <div>
-                        <Image
-                            src={logo}
-                            width={160}
-                            height={36}
-                            alt="brand logo"
-                        />
-                    </div>
-                    <div className="hidden lg:block justify-self-center">
-                        <nav className="flex gap-6 items-center font-medium">
-                            {navLinks.map((x, idx) => (
-                                <Link href={x.href} key={idx}>
-                                    {x.label}
-                                </Link>
-                            ))}
-                        </nav>
-                    </div>
-                    <div className="justify-self-end">
-                        {isOpen ? (
-                            <IoMenu
-                                className="md:hidden inline-block"
-                                size={48}
-                                onClick={() => {
-                                    setIsOpen(!isOpen);
-                                }}
+                    >
+                        <div>
+                            <Image
+                                src={logo}
+                                width={160}
+                                height={36}
+                                alt="brand logo"
                             />
-                        ) : (
-                            <IoMdClose
-                                className="md:hidden inline-block"
-                                size={48}
-                                onClick={() => {
-                                    setIsOpen(!isOpen);
-                                }}
+                        </div>
+                        <div className="hidden lg:block justify-self-center">
+                            <nav className="flex gap-6 items-center font-medium">
+                                {navLinks.map((x, idx) => (
+                                    <Link href={x.href} key={idx}>
+                                        {x.label}
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
+                        <div className="justify-self-end">
+                            {isOpen ? (
+                                <IoMenu
+                                    className="md:hidden inline-block"
+                                    size={48}
+                                    onClick={() => {
+                                        setIsOpen(!isOpen);
+                                    }}
+                                />
+                            ) : (
+                                <IoMdClose
+                                    className="md:hidden inline-block"
+                                    size={48}
+                                    onClick={() => {
+                                        setIsOpen(!isOpen);
+                                    }}
+                                />
+                            )}
+                            <Button
+                                text="Log In"
+                                className="mx-4 hidden md:inline-block"
                             />
-                        )}
-                        <Button
-                            text="Log In"
-                            className="mx-4 hidden md:inline-block"
-                        />
-                        <Button
-                            text="Sign Up"
-                            bg={true}
-                            className=" hidden md:inline-block"
-                        />
+                            <Button
+                                text="Sign Up"
+                                bg={true}
+                                className=" hidden md:inline-block"
+                            />
+                        </div>
                     </div>
                 </div>
+                {isOpen && (
+                    <div className="flex flex-col items-center">
+                        {navLinks.map((x, idx) => (
+                            <a key={idx} href={x.href} className="py-2">
+                                {x.label}
+                            </a>
+                        ))}
+                    </div>
+                )}
+                <Button text="Log In" className="mx-4 hidden md:inline-block" />
+                <Button
+                    text="Sign Up"
+                    bg={true}
+                    className=" hidden md:inline-block"
+                />
             </div>
         </section>
     );
