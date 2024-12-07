@@ -1,12 +1,14 @@
 "use client";
-import Image from "next/image";
-import logo from "@/assets/images/logo.svg";
-import Button from "@/components/Button";
 import Link from "next/link";
-import { IoMenu } from "react-icons/io5";
+import Image from "next/image";
+
 import { useState } from "react";
+import { IoMenu } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
+
+import logo from "@/assets/images/logo.svg";
+import Button from "@/components/Button";
 
 const navLinks = [
     { label: "Home", href: "#" },
