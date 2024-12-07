@@ -72,20 +72,23 @@ export default function Navbar() {
                     </div>
                 </div>
                 {isOpen && (
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center gap-4 py-4">
                         {navLinks.map((x, idx) => (
-                            <a key={idx} href={x.href} className="py-2">
+                            <a key={idx} href={x.href} className="">
                                 {x.label}
                             </a>
                         ))}
+                        <Button
+                            text="Log In"
+                            className="mx-4 hidden md:inline-block"
+                        />
+                        <Button
+                            text="Sign Up"
+                            bg={true}
+                            className=" hidden md:inline-block"
+                        />
                     </div>
                 )}
-                <Button text="Log In" className="mx-4 hidden md:inline-block" />
-                <Button
-                    text="Sign Up"
-                    bg={true}
-                    className=" hidden md:inline-block"
-                />
             </div>
         </section>
     );
