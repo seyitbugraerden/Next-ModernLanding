@@ -1,29 +1,39 @@
+"use client";
 import Button from "@/components/Button";
 import designExample1Image from "@/assets/images/design-example-1.png";
 import designExample2Image from "@/assets/images/design-example-2.png";
 import Image from "next/image";
 import Pointer from "@/components/Pointer";
+import { motion, useAnimate } from "framer-motion";
 
 export default function Hero() {
+    const [leftDesignScope, leftDesignAnimate] = useAnimate();
+    const [leftPointerScope, leftPointerAnimate] = useAnimate();
     return (
         <section className="py-24 overflow-x-clip">
             <div className="container relative">
-                <div className="absolute -left-32 top-16">
+                <motion.div
+                    ref={leftDesignScope}
+                    className="absolute -left-32 top-16"
+                >
                     <Image
                         src={designExample1Image}
                         alt="Design Example 1 Image"
                         className="hidden lg:block"
                     />
-                </div>
+                </motion.div>
+                <motion.div
+                    ref={leftPointerScope}
+                    className="absolute left-56 top-96 hidden lg:block"
+                >
+                    <Pointer name="Andrea" />
+                </motion.div>
                 <div className="absolute -right-64 top-16">
                     <Image
                         className="hidden lg:block"
                         src={designExample2Image}
                         alt="Design Example 2 Image"
                     />
-                </div>
-                <div className="absolute left-56 top-96 hidden lg:block">
-                    <Pointer name="Andrea" />
                 </div>
                 <div className="absolute right-56 top-0 hidden lg:block">
                     <Pointer name="Bryan" color="red" />
