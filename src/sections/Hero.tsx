@@ -33,7 +33,7 @@ export default function Hero() {
                 { opacity: 1 },
                 { duration: 0.5, delay: 1.5 },
             ],
-            [rightDesignScope.current, { x: 0, y: 0 }, { duration: 0.5 }],
+            [rightDesignScope.current, { x: 0, y: -100 }, { duration: 0.5 }],
         ]);
         rightPointerAnimate([
             [
