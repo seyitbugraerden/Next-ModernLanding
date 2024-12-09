@@ -6,6 +6,7 @@ import Image from "next/image";
 import Pointer from "@/components/Pointer";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import cursorYouImage from "@/assets/images/cursor-you.svg";
 
 export default function Hero() {
     const [leftDesignScope, leftDesignAnimate] = useAnimate();
@@ -42,7 +43,11 @@ export default function Hero() {
                 { duration: 0.5, delay: 1.5 },
             ],
             [rightPointerScope.current, { x: 175, y: 0 }, { duration: 0.5 }],
-            [rightPointerScope.current, { x: 0, y: [0,20,0] }, { duration: 0.5 }],
+            [
+                rightPointerScope.current,
+                { x: 0, y: [0, 20, 0] },
+                { duration: 0.5 },
+            ],
         ]);
     }, []);
 
@@ -51,11 +56,13 @@ export default function Hero() {
             <div className="container relative">
                 <motion.div
                     ref={leftDesignScope}
+                    drag
                     initial={{ opacity: 0, y: 100, x: -100 }}
                     className="absolute -left-32 top-16"
                 >
                     <Image
                         src={designExample1Image}
+                        draggable={false}
                         alt="Design Example 1 Image"
                         className="hidden lg:block"
                     />
@@ -69,11 +76,13 @@ export default function Hero() {
                 </motion.div>
                 <motion.div
                     ref={rightDesignScope}
+                    drag
                     initial={{ opacity: 0, x: 100, y: 100 }}
                     className="absolute -right-64 top-16"
                 >
                     <Image
                         className="hidden lg:block"
+                        draggable={false}
                         src={designExample2Image}
                         alt="Design Example 2 Image"
                     />
