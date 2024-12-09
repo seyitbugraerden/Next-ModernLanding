@@ -5,7 +5,7 @@ import designExample2Image from "@/assets/images/design-example-2.png";
 import Image from "next/image";
 import Pointer from "@/components/Pointer";
 import { motion, useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import cursorYouImage from "@/assets/images/cursor-you.svg";
 
 export default function Hero() {
@@ -13,7 +13,7 @@ export default function Hero() {
     const [leftPointerScope, leftPointerAnimate] = useAnimate();
     const [rightDesignScope, rightDesignAnimate] = useAnimate();
     const [rightPointerScope, rightPointerAnimate] = useAnimate();
-
+    const containerRef = useRef(null);
     useEffect(() => {
         leftDesignAnimate([
             [leftDesignScope.current, { opacity: 1 }, { duration: 0.5 }],
@@ -53,10 +53,11 @@ export default function Hero() {
 
     return (
         <section className="py-24 overflow-x-clip">
-            <div className="container relative">
+            <div className="container relative" ref={containerRef}>
                 <motion.div
                     ref={leftDesignScope}
                     drag
+                    dragConstraints={containerRef}
                     initial={{ opacity: 0, y: 100, x: -100 }}
                     className="absolute -left-32 top-16"
                 >
@@ -77,6 +78,7 @@ export default function Hero() {
                 <motion.div
                     ref={rightDesignScope}
                     drag
+                    dragConstraints={containerRef}
                     initial={{ opacity: 0, x: 100, y: 100 }}
                     className="absolute -right-64 top-16"
                 >
