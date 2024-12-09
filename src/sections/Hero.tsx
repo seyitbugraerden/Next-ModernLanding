@@ -6,7 +6,6 @@ import Image from "next/image";
 import Pointer from "@/components/Pointer";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect, useRef } from "react";
-import cursorYouImage from "@/assets/images/cursor-you.svg";
 
 export default function Hero() {
     const [leftDesignScope, leftDesignAnimate] = useAnimate();
@@ -49,7 +48,16 @@ export default function Hero() {
                 { duration: 0.5 },
             ],
         ]);
-    }, []);
+    }, [
+        leftDesignAnimate,
+        leftPointerAnimate,
+        rightDesignAnimate,
+        rightPointerAnimate,
+        leftDesignScope,
+        leftPointerScope,
+        rightDesignScope,
+        rightPointerScope,
+    ]);
 
     return (
         <section className="py-24 overflow-x-clip">
