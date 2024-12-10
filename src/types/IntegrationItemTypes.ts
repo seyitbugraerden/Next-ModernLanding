@@ -6,5 +6,6 @@ export interface IntegrationItemTypes {
 
 export interface IntegrationColumnsTypes {
     className?: string;
+    reverse?: boolean;
     integrations: IntegrationItemTypes[];
 }
