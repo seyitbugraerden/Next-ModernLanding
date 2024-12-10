@@ -31,12 +31,13 @@ export default function Introduction() {
                         <span className="text-3xl text-center font-medium mt-10">
                             Your creative process deserves better.
                         </span>
-                        <span className="text-white/15 text-3xl max-w-[50vw] flex flex-wrap gap-x-6 text-4xl gap-y-6 py-6 mx-auto text-center">
+                        <span className="text-white/15 max-w-[50vw] flex flex-wrap gap-x-6 text-4xl gap-y-6 py-6 mx-auto text-center">
                             {words.map((x, wordIndex) => (
                                 <span
                                     key={wordIndex}
                                     className={twMerge(
-                                        wordIndex < currentWord && "text-white transition duration-500"
+                                        wordIndex < currentWord &&
+                                            "text-white transition duration-500"
                                     )}
                                 >
                                     {x}
@@ -48,7 +49,7 @@ export default function Introduction() {
                         </span>
                     </div>
                 </div>
-                <div className="h-[150vh]" ref={scrollTarget}></div>
+                <div className="h-[70vh]" ref={scrollTarget}></div>
             </div>
         </section>
     );
