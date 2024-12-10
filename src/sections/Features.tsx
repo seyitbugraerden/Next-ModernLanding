@@ -3,6 +3,7 @@ import FeatureCard from "@/components/FeatureCard";
 import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg";
 import avatar2 from "@/assets/images/avatar-lula-meyers.jpg";
 import avatar3 from "@/assets/images/avatar-florence-shaw.jpg";
+import avatar4 from "@/assets/images/avatar-owen-garcia.jpg";
 import Image from "next/image";
 import Avatar from "@/components/Avatar";
 import Key from "@/components/Key";
@@ -32,7 +33,7 @@ export default function Features() {
                         title="Real-time Collaboration"
                         description="Work together seamless with conflict-free team
                                 editing"
-                        className="md:col-span-2 lg:col-span-1"
+                        className="md:col-span-2 lg:col-span-1 group"
                     >
                         <div className="flex items-center justify-center h-full">
                             <Avatar className="z-40">
@@ -56,8 +57,13 @@ export default function Features() {
                                     className="rounded-full"
                                 />
                             </Avatar>
-                            <Avatar className="-ml-6 border-transparent rounded-full">
-                                <div className="size-full bg-neutral-700 inline-flex justify-center items-center gap-1">
+                            <Avatar className="-ml-6 border-transparent rounded-full group-hover:border-green-500 transition">
+                                <div className="size-full bg-neutral-700 inline-flex justify-center items-center gap-1 relative">
+                                    <Image
+                                        src={avatar4}
+                                        alt="Avatar 4"
+                                        className="absolute size-full rounded-full opacity-0 group-hover:opacity-100 transition "
+                                    />
                                     {Array.from({ length: 3 }).map((_, i) => (
                                         <span
                                             key={i}
@@ -72,13 +78,21 @@ export default function Features() {
                         title="Interactive Prototyping"
                         description="Engage your clients with prototypes that react
                                 to user actions"
-                        className="md:col-span-2 lg:col-span-1"
+                        className="md:col-span-2 lg:col-span-1 group"
                     >
                         <div className="flex items-center justify-center">
                             <p className="text-4xl font-extrabold text-white/20 text-center ">
                                 We&apos;ve achived{" "}
-                                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                    incredible
+                                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative">
+                                    <span>incredible</span>
+                                    <video
+                                        src="/gif-incredible.mp4"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="absolute bottom-full left-1/2 -translate-x-1/2  rounded-xl shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 transition"
+                                    />
                                 </span>{" "}
                                 growth this year
                             </p>
@@ -88,12 +102,18 @@ export default function Features() {
                         title="Keyboard Quick Actions"
                         description="Powerful comments to help you create designs
                                 more quickly"
-                        className="md:col-span-2 md:col-start-2 lg:col-span-1"
+                        className="md:col-span-2 md:col-start-2 lg:col-span-1 group"
                     >
                         <div className="flex items-center justify-center gap-4 h-full">
-                            <Key className="w-28">shift</Key>
-                            <Key>alt</Key>
-                            <Key>C</Key>
+                            <Key className="w-28 group-hover:outline outline-transparent group-hover:outline-lime-400 outline-2 transition outline-offset-4 translate-y-1 ">
+                                shift
+                            </Key>
+                            <Key className="outline-lime-400 outline-2 transition outline-offset-4 translate-y-1 ">
+                                alt
+                            </Key>
+                            <Key className="outline-lime-400 outline-2 transition outline-offset-4 translate-y-1 ">
+                                C
+                            </Key>
                         </div>
                     </FeatureCard>
                 </div>
